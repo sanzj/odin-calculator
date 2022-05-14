@@ -73,13 +73,13 @@ function division(first, second){
 function operate(operation, first, second){
     switch(operation){
         case '+':
-            return addition(first, second);
+            return addition(first, second).toFixed(10);
         case '-':
-            return subtraction(first, second);
+            return subtraction(first, second).toFixed(10);
         case 'X':
-            return multiplication(first, second);
+            return multiplication(first, second).toFixed(10);
         case '/':
-            return division(first, second);
+            return division(first, second).toFixed(10);
     }
 }
 
