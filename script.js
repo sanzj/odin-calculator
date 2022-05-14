@@ -9,6 +9,7 @@ let display = document.querySelector('#display');
 let numpad = document.querySelectorAll('.number');
 let operators = document.querySelectorAll('.operator')
 
+//Button OnClick Events
 for(let i = 0; i < numpad.length; i++){
     numpad[i].addEventListener('click', () => {
         if(newPhase){
@@ -37,6 +38,10 @@ for(let i = 0; i < operators.length; i++){
     });
 }
 
+document.querySelector('#decimal').addEventListener('click', () => {
+    if(!display.textContent.includes('.')) updateDisplay('.');   
+})
+
 document.querySelector('#equal-btn').addEventListener('click', () => {
     if(termOne && operator && display.textContent) {
         termTwo = display.textContent;
@@ -51,6 +56,13 @@ document.querySelector('#clear-btn').addEventListener('click', () => {
     termOne = termTwo = operator = '';
     newPhase = true;
 });
+
+document.querySelector('#backspace').addEventListener('click', () => {
+    if(display.textContent){
+        console.log(display.textContent[display.textContent.length-1]);
+        display.textContent = display.textContent.slice(0, display.textContent.length-1)
+    }
+})
 
 
 //FUNCTION INITIALIZATIONS
@@ -84,6 +96,7 @@ function operate(operation, first, second){
     }
 }
 
+//Misc Functions
 function updateDisplay(character){
     display.textContent += character;
 }
