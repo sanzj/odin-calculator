@@ -79,7 +79,8 @@ function operate(operation, first, second){
         case 'X':
             return multiplication(first, second).toFixed(10);
         case '/':
-            return division(first, second).toFixed(10);
+            if(second == '0') return 'who made you this way';
+            else return division(first, second).toFixed(10);
     }
 }
 
